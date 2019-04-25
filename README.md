@@ -1,2 +1,2 @@
-# kotlin-studies
+# Kotlin Studies
 Kotlin Studies
