@@ -10,4 +10,8 @@ Kotlin pratice
 
 https://github.com/jether2011/kotlin-studies/tree/master/koans-pratices
 
+### 3 - COURSERA
+Coursera Kotlin Course
+
+https://github.com/jether2011/kotlin-studies/tree/master/coursera
 
