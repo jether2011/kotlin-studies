@@ -1,4 +1,4 @@
-package com.jetherrodrigues
+package com.jetherrodrigues.week1
 
 fun main() {
     println("First ${foo()}, second ${foo()}")

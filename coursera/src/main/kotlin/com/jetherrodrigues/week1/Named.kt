@@ -1,4 +1,4 @@
-package com.jetherrodrigues
+package com.jetherrodrigues.week1
 
 fun main() {
     println(listOf('a', 'b', 'c').joinToString(separator = "", prefix = "(", postfix = ")"))

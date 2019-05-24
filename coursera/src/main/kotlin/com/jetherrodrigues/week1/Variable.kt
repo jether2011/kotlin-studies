@@ -1,11 +1,11 @@
-package com.jetherrodrigues
+package com.jetherrodrigues.week1
 
 fun main() {
     /**
      * val is ready-only variable like a final in java
      */
-    val question:String = "life, the universe, and everything"
-    println("${question}?")
+    val question = "life, the universe, and everything"
+    println("$question?")
 
     /**
      * var can be reassigned

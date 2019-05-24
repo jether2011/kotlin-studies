@@ -1,4 +1,4 @@
-package com.jetherrodrigues
+package com.jetherrodrigues.week1
 
 fun main() {
     println(max(2, 3))
@@ -12,7 +12,7 @@ fun displayMax(a: Int, b: Int) {
     println(max(a, b))
 }
 
-fun displayMax2(a: Int, b: Int): Unit {
+fun displayMax2(a: Int, b: Int) {
     println(max(a, b))
 }
 
