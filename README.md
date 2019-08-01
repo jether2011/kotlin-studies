@@ -5,6 +5,10 @@ Kotlin with Javalin
 
 https://github.com/jether2011/kotlin-studies/tree/master/crud-javalin
 
+Kotlin real world challenge
+
+https://github.com/Rudge/kotlin-javalin-realworld-example-app
+
 ### 2 - KOANS
 Kotlin pratice (https://play.kotlinlang.org/koans/Introduction/)
 
