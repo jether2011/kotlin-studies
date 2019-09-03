@@ -13,8 +13,8 @@ import javax.validation.Valid
 class PersonController(private val service: PersonService) {
 
     @PostMapping
-    fun create(@RequestBody @Valid personContract: PersonRequest) =
-        personContract
+    fun create(@RequestBody @Valid request: PersonRequest) =
+        request
             .let(PersonRequest::toDomain)
             .run {
                 service.create(this)
