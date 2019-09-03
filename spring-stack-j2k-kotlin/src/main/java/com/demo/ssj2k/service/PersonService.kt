@@ -22,7 +22,7 @@ class PersonService(private val repository: PersonRepository) {
         }
     }
 
-    fun findAll(): List<Person> = repository.findAll().also {
+    fun findAll(): List<Person> = repository.findAll().toList().also {
         log.debug { "${it.size} persons found" }
     }
 }
