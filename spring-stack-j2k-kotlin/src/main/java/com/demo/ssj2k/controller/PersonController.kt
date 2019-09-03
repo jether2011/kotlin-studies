@@ -13,12 +13,13 @@ import javax.validation.Valid
 class PersonController(private val service: PersonService) {
 
     @PostMapping
-    fun create(@RequestBody @Valid personContract: PersonContract) =
+    fun create(@RequestBody @Valid personContract: PersonRequest) =
         personContract
-            .let(PersonContract::toDomain)
-            .run { service.create(this) }
-            .let(::PersonContractResponse)
+            .let(PersonRequest::toDomain)
+            .run {
+                service.create(this)
+            }.let (::PersonResponse)
 
     @GetMapping
-    fun list() = service.findAll().map(::PersonContract)
+    fun list() = service.findAll().map(::PersonResponse)
 }
