@@ -18,7 +18,7 @@ class PersonService(private val repository: PersonRepository) {
         }
 
         return repository.save(person).also {
-            log.debug { "Person ${it.id} - ${it.fullName} created" }
+            log.debug { "Person ${it.id} - ${it.getFullName()} created" }
         }
     }
 
