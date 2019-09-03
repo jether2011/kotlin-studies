@@ -9,6 +9,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import org.springframework.data.repository.findByIdOrNull
+import java.util.*
 
 class PersonServiceTest {
     private val repository = mockk<PersonRepository>()
@@ -18,7 +19,8 @@ class PersonServiceTest {
     fun `when person does not exists save with success`() {
         every { repository.findByIdOrNull(any()) } returns null
 
-        val person = Person(10, "Mathew", "Smith", 37)
+        val id = UUID.randomUUID().toString()
+        val person = Person(id, "Mathew", "Smith", 37)
 
         val captor = slot<Person>()
 
@@ -28,18 +30,20 @@ class PersonServiceTest {
 
         val savedPerson = captor.captured
 
-        assertThat(savedPerson.id).isEqualTo(10)
+        assertThat(savedPerson.id).isEqualTo(id)
         assertThat(savedPerson.firstName).isEqualTo("Mathew")
         assertThat(savedPerson.lastName).isEqualTo("Smith")
-        assertThat(savedPerson.fullName).isEqualTo("Mathew Smith")
+        assertThat(savedPerson.getFullName()).isEqualTo("Mathew Smith")
         assertThat(savedPerson.age).isEqualTo(37)
     }
 
     @Test
     fun `when person already exists throw exception`() {
-        every { repository.findByIdOrNull(any()) }.returns(Person(10, "Mathew", "Smith", 37))
+        val id = UUID.randomUUID().toString()
 
-        val person = Person(10, "Mathew", "Smith", 37)
+        every { repository.findByIdOrNull(any()) }.returns(Person(id, "Mathew", "Smith", 37))
+
+        val person = Person(id, "Mathew", "Smith", 37)
 
         assertThatThrownBy { service.create(person) }.isInstanceOf(DomainAlreadyExistsException::class.java)
     }
