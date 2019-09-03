@@ -1,7 +1,9 @@
 package com.jetherrodrigues
 
 fun main() {
-    println()
+    val personalInfo = PersonalInfo(null)
+    println(personalInfo.email.isNullOrBlank())
+
 }
 
 fun sendMessageToClient(
@@ -20,3 +22,4 @@ class PersonalInfo (val email: String?)
 interface Mailer {
     fun sendMessage(email: String, message: String)
 }
+
