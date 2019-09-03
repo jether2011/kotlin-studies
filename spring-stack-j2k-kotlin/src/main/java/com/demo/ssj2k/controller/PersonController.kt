@@ -17,7 +17,7 @@ class PersonController(private val service: PersonService) {
         personContract
             .let(PersonContract::toDomain)
             .run { service.create(this) }
-            .let(::PersonContract)
+            .let(::PersonContractResponse)
 
     @GetMapping
     fun list() = service.findAll().map(::PersonContract)
