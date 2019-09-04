@@ -7,6 +7,7 @@ spring:
     driver-class-name: "org.postgis.DriverWrapper"
     url: "jdbc:postgresql_postGIS://localhost:5432/messenger"
     username: "postgres"
+    password: "postgres123"
   mvc:
       async:
         request-timeout: 1000000
