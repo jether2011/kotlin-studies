@@ -5,7 +5,7 @@ spring:
   datasource:
     platform: "postgis"
     driver-class-name: "org.postgis.DriverWrapper"
-    url: "jdbc:postgresql_postGIS://localhost/geospatial-messenger"
+    url: "jdbc:postgresql_postGIS://localhost:5432/messenger"
     username: "postgres"
   mvc:
       async:

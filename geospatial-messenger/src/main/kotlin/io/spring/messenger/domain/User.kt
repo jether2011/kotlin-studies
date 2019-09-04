@@ -3,8 +3,8 @@ package io.spring.messenger.domain
 import org.postgis.Point
 
 class User(
-    var userName  : String,
-    var firstName : String,
-    var lastName  : String,
-    var location  : Point? = null
+    val userName  : String,
+    val firstName : String,
+    val lastName  : String,
+    val location  : Point? = null
 )

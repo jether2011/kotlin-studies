@@ -2,6 +2,7 @@ package io.spring.messenger.repository
 
 import io.spring.messenger.Messages
 import io.spring.messenger.domain.Message
+import io.spring.messenger.domain.MessageResponse
 import io.spring.messenger.within
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.statements.UpdateBuilder
@@ -19,8 +20,9 @@ class DefaultMessageRepository : MessageRepository {
     override fun createTable() = SchemaUtils.create(Messages)
 
     override  fun create(m: Message): Message {
-        m.id = Messages.insert(toRow(m))[Messages.id]
-        return m
+        return Messages.insert(toRow(m)).let {
+            Message(id = it[Messages.id])
+        }
     }
 
     override fun findAll() = Messages.selectAll().map { fromRow(it) }

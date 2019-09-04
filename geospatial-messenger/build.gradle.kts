@@ -5,11 +5,13 @@ plugins {
 	id("org.jetbrains.kotlin.jvm") version kotlinVersion
 	id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
 	id("io.spring.dependency-management") version "1.0.4.RELEASE"
+	id("org.flywaydb.flyway") version "6.0.1"
 }
 
 buildscript {
 
 	val kotlinVersion = "1.2.21"
+	val springBootGradlePluginVersion = "2.0.0.RC1"
 
 	repositories {
 		mavenCentral()
@@ -18,7 +20,7 @@ buildscript {
 	dependencies {
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RC1")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootGradlePluginVersion}")
 	}
 }
 

@@ -3,9 +3,9 @@ package io.spring.messenger.domain
 import org.postgis.Point
 
 class Message(
-    var content  : String,
-    var author   : String,
-    var location : Point? = null,
-    var id       : Int?   = null
+    val content  : String? = null,
+    val author   : String? = null,
+    val location : Point? = null,
+    val id       : Int?   = null
 )
 
