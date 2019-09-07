@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "postgres123"
+    ports:
+      - "5432:5432"
+    volumes:
+      - json:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "dev@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2019!"
+    ports:
+      - "5555:80"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-compose-network
+
+volumes:
+  json:
+networks:
+  postgres-compose-network:
+    driver: bridge
