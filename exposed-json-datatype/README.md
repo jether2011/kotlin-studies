@@ -1,5 +1,24 @@
 # Exposed JSON Datatype
 
+### UP Necessaries Services
+
+There is a file: `up.sh` and executing it, the docker services (PGADMIN4 and POSTGRESQL 9) will start and after that, the application will be able to run.
+
+Execute:
+
+```shell_script
+sh up.sh
+```
+
+To access PGADMIN4 go to the local url `http:localhost:5555` and use the credentials below to access the service:
+
+```json
+{
+  "username": "dev@gmail.com",
+  "password": "PgAdmin2019!"
+}
+```
+
 ### GET
 
 ##### ALL
