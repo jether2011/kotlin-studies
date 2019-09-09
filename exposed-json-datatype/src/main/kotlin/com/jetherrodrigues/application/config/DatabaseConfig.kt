@@ -1,5 +1,6 @@
 package com.jetherrodrigues.application.config
 
+import com.jetherrodrigues.resource.tables.LayerTable
 import com.jetherrodrigues.resource.tables.UserTable
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
@@ -31,6 +32,9 @@ class DatabaseConfig {
         transaction {
             SchemaUtils.drop(UserTable)
             SchemaUtils.create(UserTable)
+
+            SchemaUtils.drop(LayerTable)
+            SchemaUtils.create(LayerTable)
         }
     } catch (e: ExposedSQLException) {
         throw Exception(e.message)

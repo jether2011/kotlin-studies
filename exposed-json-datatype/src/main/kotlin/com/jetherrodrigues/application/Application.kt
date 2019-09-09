@@ -3,7 +3,9 @@ package com.jetherrodrigues.application
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.jetherrodrigues.application.config.DatabaseConfig
 import com.jetherrodrigues.application.config.appModules
+import com.jetherrodrigues.application.web.routes.LayerRoutes
 import com.jetherrodrigues.application.web.routes.UserRoutes
+import com.jetherrodrigues.domain.exceptions.LayerNotFoundException
 import io.javalin.Javalin
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.StandAloneContext
@@ -20,6 +22,7 @@ const val SERVER_PORT = 7000
  */
 class Application : KoinComponent {
     private val userRoutes : UserRoutes by inject()
+    private val layerRoutes: LayerRoutes by inject()
     private val databaseConfig = DatabaseConfig()
 
     private fun setup(): Javalin {
@@ -35,9 +38,15 @@ class Application : KoinComponent {
 
                     app.routes {
                         userRoutes.register(app)
+                        layerRoutes.register(app)
                     }
 
                     app.exception(UserNotFoundException::class.java) { exception, ctx ->
+                        ctx.status(404)
+                        exception.message?.let { ctx.result(it) }
+                    }
+
+                    app.exception(LayerNotFoundException::class.java) { exception, ctx ->
                         ctx.status(404)
                         exception.message?.let { ctx.result(it) }
                     }
