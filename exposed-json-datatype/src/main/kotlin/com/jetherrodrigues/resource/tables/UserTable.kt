@@ -1,9 +1,5 @@
 package com.jetherrodrigues.resource.tables
-
-import com.fasterxml.jackson.databind.ObjectMapper
 import org.jetbrains.exposed.sql.Table
-
-val jsonMapper = ObjectMapper()
 
 object UserTable : Table() {
     val id = ulid("id").primaryKey()
